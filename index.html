@@ -1,101 +1,551 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="sAsh site web">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sAsh</title>
-  <!-- Favicon -->
-  <link rel="ICON"
-    href="https://media.discordapp.net/attachments/1047992799737434132/1058356220987187210/favicon-16x16.png" />
-  <!-- Font Awesome icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <!-- Core theme CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Backup - Discord" />
+  <meta property="og:description" content="Le site officiel de Backup." />
+  <title>Backup</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - preload image
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
 </head>
 
-<body>
-  <!-- Parallax Pixel Background Animation -->
-  <section class="animated-background">
-    <div id="stars1"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-  </section>
-  <!-- End of Parallax Pixel Background Animation -->
+<body id="top">
 
-  <a id="profilePicture" href="#popup">
-    <img
-      src="https://media.discordapp.net/attachments/1057381347745874020/1058353974325026866/IMG_7206.jpg"
-      alt="Profile Picture">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="#" class="logo">Backup - Discord</a>
+      </h1>
+
+      <nav class="navbar container" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Menu</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#services" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#features" class="navbar-link" data-nav-link>Fonctionalitées</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#stats" class="navbar-link" data-nav-link>Stats</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#contact" class="navbar-link" data-nav-link>Nous Contacter</a>
+          </li>
+
+        </ul>
+      </nav>
+<form action="./discord.html">
+      <button class="btn btn-secondary">Rejoindre</button>
+</form>
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggle-btn>
+        <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" class="close-icon"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home">
+        <div class="container">
+
+          <figure class="hero-banner">
+            <img src="./assets/images/aromax.png"  loading="lazy" alt="hero banner"
+              class="w-100">
+          </figure>
+
+          <div class="hero-content">
+
+            <h2 class="h1 hero-title">Backup & Design</h2>
+
+            <p class="section-text">
+              Une communauté où vous pouvez interagir et parler de ce que vous aimez. Explorez les projets et les travaux liés à la personalité de chacun dans le respect.
+            </p>
+<br>
+<!--             <form action="discord.html" class="hero-form">
+          
+              <button type="submit" class="btn btn-primary">Join Now</button>
+            </form> -->
+
+            <ul class="hero-list">
+
+              <li class="hero-item">
+                <img src="./assets/images/check-circle.svg" width="16" height="16" loading="lazy" alt="Checkmark icon">
+
+                <span class="span">Un Chat Actif</span>
+              </li>
+
+              <li class="hero-item">
+                <img src="./assets/images/check-circle.svg" width="16" height="16" loading="lazy" alt="Checkmark icon">
+
+                <span class="span">Un Staff Actif</span>
+              </li>
+
+              <li class="hero-item">
+                <img src="./assets/images/check-circle.svg" width="16" height="16" loading="lazy" alt="Checkmark icon">
+
+                <span class="span">Des Bots Simples D'utilisation</span>
+              </li>
+
+              <li class="hero-item">
+                <img src="./assets/images/check-circle.svg" width="16" height="16" loading="lazy" alt="Checkmark icon">
+
+                <span class="span">Des Graphistes Proféssionels et Débutants</span>
+              </li>
+
+              <li class="hero-item">
+                <img src="./assets/images/check-circle.svg" width="16" height="16" loading="lazy" alt="Checkmark icon">
+
+                <span class="span">Des Giveaways</span>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" id="services">
+        <div class="container">
+
+          <h2 class="h2 section-title">Services</h2>
+
+          <p class="section-text">
+           Vous Pouvez avoir des Bannières / Backups de serveurs à la demande
+          </p>
+
+          <ul class="service-list">
+
+            <li>
+              <div class="service-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/service-1.gif" width="728" height="344" loading="lazy" alt="support"
+                    class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Support</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Nous vous offrons une assistance active de 9h00 à 0h00 et 7j/7. Vous pouvez demander n'importe quel type d'aide concernant les bannières ou les backups voir de l'aide a l'utilisation des BOTS si nécéssaire . Vous pouvez également signaler des membres si ces derniers respectent pas les règles du serveur.
+                  </p>
+
+<!--                   <a href="#" class="btn-link">
+                    <span class="span">Learn More</span>
+
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a> -->
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/service-2.gif" width="728" height="344" loading="lazy" alt="Marketing"
+                    class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Engagement</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Nous avons des chats actifs et vous pouvez discuter avec nos membres. Vous pouvez vous faire des amis et travailler ensemble.                                                                                                                                    
+                  </p>
+
+<!--                   <a href="#" class="btn-link">
+                    <span class="span">Learn More</span>
+
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a> -->
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURES
+      -->
+
+      <section class="section features" id="features">
+        <div class="container">
+
+          <div class="features-content">
+
+            <h2 class="h2 section-title">Nos caractéristiques impressionnantes pour vous servir</h2>
+
+            <p class="section-text">
+              Nous vous facilitons la tâche
+              dans la création de vos bannières et serveurs discord avec des templates de serveurs. 
+            </p>
+
+            <ul class="features-list">
+
+              <li class="features-item">
+                <img src="./assets/images/features-icon-2.svg" width="26" height="26" loading="lazy" aria-hidden="true"
+                  class="item-icon">
+
+                <h3 class="item-title">Vous ne perdrez pas de temps a trouver des idées de rôles.</h3>
+              </li>
+
+              <li class="features-item">
+                <img src="./assets/images/features-icon-3.svg" width="26" height="26" loading="lazy" aria-hidden="true"
+                  class="item-icon">
+
+                <h3 class="item-title">Vous pourrez personaliser vos serveurs et / bannières a votre image</h3>
+              </li>
+
+              <li class="features-item">
+                <img src="./assets/images/features-icon-4.svg" width="26" height="26" loading="lazy" aria-hidden="true"
+                  class="item-icon">
+
+                <h3 class="item-title">Vous pourrez bien évidemment passer commande pour avoir des design spécifiques ou plus avancés.</h3>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <div class="banner-wrapper">
+
+            <figure class="features-banner one">
+              <img src="./assets/images/dc.svg" width="600" height="500" loading="lazy"
+                alt="features image" class="w-100">
+            </figure>
+
+            <figure class="features-banner two">
+              <img src="./assets/images/dc-2.svg" width="436" height="311" loading="lazy"
+                alt="features image" class="w-100">
+            </figure>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about">
+        <div class="container">
+
+          <h2 class="h2 section-title">Ce que nous vous proposons.</h2>
+
+          <p class="section-text">
+            Beaucoup de gens s'ennuient à rester à la maison et à ne rien faire. Notre objectif est de créer une communauté interactive où vous pouvez créer et construire des idées dans le secteur de la créativité. 
+          </p>
+
+          <ul class="about-list">
+
+            <li>
+              <div class="about-card about-card-1">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/about-img-1.svg" width="94" height="94" loading="lazy"
+                    alt="Automated Ticket Routing">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Système de Tickets</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Nous acceptons tous les tickets que vous avez ouverts et nous les examinons.
+                  </p>
+
+<!--                   <a href="#" class="btn-link">
+                    <span class="span">Learn More</span>
+
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a> -->
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="about-card about-card-2">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/about-img-2.svg" width="94" height="94" loading="lazy"
+                    alt="Workflow Automation">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Processus</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Nous vous aiderons à compléter votre projet et à résoudre vos problèmes rencontrés durant vos créations.
+                  </p>
+
+<!--                   <a href="#" class="btn-link">
+                    <span class="span">Learn More</span>
+
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </a> -->
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <p class="section-text">
+            Nous faisons tout ce qui est en notre possibilité pour vous aidez alors 
+            <a href="discord.html" class="btn-link">
+              <span class="span">Cliquez ici pour nous rejoindre.</span>
+              
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </p>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #STATS
+      -->
+
+      <section class="section stats" id="stats">
+        <div class="container">
+
+          <figure class="stats-banner">
+            <img src="./assets/images/stats-banner.png" width="619" height="482" loading="lazy" alt="stats"
+              class="w-100">
+          </figure>
+
+          <ul class="stats-list">
+
+            <li class="stats-item purple">
+              <h3 class="item-title">
+                +1000
+                <span class="span">Membres</span>
+              </h3>
+
+              <p class="stats-text">Membres Actifs</p>
+            </li>
+
+            <li class="stats-item red">
+              <h3 class="item-title">
+                +8000
+                <span class="span">Membres</span>
+              </h3>
+
+              <p class="stats-text">Membres totaux dans le serveur</p>
+            </li>
+
+            <li class="stats-item green">
+              <h3 class="item-title">
+                20+
+                <span class="span">Salons</span>
+              </h3>
+
+              <p class="stats-text">Textuels & Vocaux</p>
+            </li>
+
+            <li class="stats-item yellow">
+              <h3 class="item-title">
+                90+
+                <span class="span">Roles</span>
+              </h3>
+
+              <p class="stats-text">& Roles Couleurs</p>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+      <!-- 
+        - #SUPPORT
+      -->
+
+      <section class="section support" id="contact">
+        <div class="container">
+
+          <div class="support-content">
+            <h2 class="h2 section-title">Support 15/24h & 7/7j</h2>
+
+            <p class="section-text">
+              Notre équipe est là pour vous fournir un service personnalisé et exceptionnel :
+            </p>
+          </div>
+
+          <a href="discord.html" class="btn btn-primary">Nous Rejoindre</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 <span class="span">Backup - Discord</span>. All rights reserved by <a href="./nekzy.html"
+            class="copyright-link">Nekzy</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="discord.com/privacy" class="footer-bottom-link">Politique de Confidentialité</a>
+          </li>
+
+          <li>
+            <a href="discord.com/terms" class="footer-bottom-link">Terms & Conditions</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
   </a>
 
-  <div class="overlay" id="popup">
-    <div class="popup">
-      <div class="popup-photo">
-        <a href="https://media.discordapp.net/attachments/1057381347745874020/1058353974325026866/IMG_7206.jpg"
-          target="_blank">
-          <img
-            src="https://media.discordapp.net/attachments/1057381347745874020/1058353974325026866/IMG_7206.jpg"
-            alt="Profile Picture">
-        </a>
-      </div>
-      <div class="popup-quote">
-        Pourquoi t'es la ?
-      </div>
-      <a class="popup-close" onclick="history.back()">&times;</a>
-    </div>
-  </div>
 
-  <div id="userName">
-    sAsh
-  </div>
 
-  <div id="links">
-    <a class="link" href="https://" target="_blank">
-      <i class="fas fa-shopping-cart">&nbsp;</i> SHOP
-    </a>
-    <a class="link" href="https://discord.gg/backup" target="_blank">
-      <i class="fab fa-discord">&nbsp;</i>DISCORD
-    </a>
-    <a class="link" href="https://Muppet-Music.ml" target="_blank">
-      <i class="fa fa-play-circle">&nbsp;</i>MUPPET
-    </a>
-    <a class="link" href="https://instagram.com/" target="_blank">
-      <i class="fab fa-brands fa-instagram">&nbsp;</i>INSTAGRAM
-    </a>
-    <a class="link" href="https://twitter.com/" target="_blank">
-      <i class="fab fa-brands fa-twitter">&nbsp;</i>TWITTER
-    </a>
-    <a class="link" href="https://twitch.com/amztv_" target="_blank">
-      <i class="fab fa-brands fa-twitch">&nbsp;</i>TWITCH
-    </a>
-    <div id="userName">
-      </turbo-frame>
 
-      <div class="max-w-5xl mx-auto pb-8 px-4 sm:px-6 lg:px-8" style="font-family: &#39;Poppins&#39;, sans-serif;">
-        <div data-controller="clicks">
-          <turbo-frame id="embedding_10903_block">
-            <div class="mt-12 md:mt-14">
 
-              <div class="relative overflow-hidden shadow-lg rounded-lg">
-<iframe class="w-full" src="https://open.spotify.com/embed/track/4R5FTfj452BzAAtZ3IQfKx?utm_source=generator&amp;theme=0" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
-            </iframe>
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
 
-                </iframe>
-              </div>
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-            </div>
-          </turbo-frame>
-          <turbo-frame id="teammate_647_block">
-            <div class="mt-12 md:mt-14">
-            </div>
-          </turbo-frame>
-        </div>
-      </div>
-      <div id="hashtag">
-        by sAsh
-      </div>
 </body>
 
 </html>
