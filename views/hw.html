@@ -1,0 +1,154 @@
+<div id="ListeDevoirs" class="liste">
+    <div id="ListeCours" class="liste">
+        <div class="cours loadingCours" style="--off: 0ms">
+            <div class="coursleftBar"></div>
+            <div class="cours_data">
+                <div class="cours_topData">
+                    <h3>Chargement en cours...</h3>
+                    <p>Récupération des devoirs</p>
+                    <div class="loadingCoursBar">
+                        <div class="loadingCoursBarFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    addedHW = 0;
+
+    function mainView_Hw() {
+        $('#ListeDevoirs').html(`
+        <div class="cours loadingCours" style="--off: 0ms">
+            <div class="coursleftBar"></div>
+            <div class="cours_data">
+                <div class="cours_topData">
+                    <h3>Chargement en cours...</h3>
+                    <p>Récupération des devoirs</p>
+                    <div class="loadingCoursBar">
+                        <div class="loadingCoursBarFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `);
+
+        let newRn = new Date(rn)
+        newRn.setDate(newRn.getDate())
+        
+        let from = newRn.toISOString().split("T")[0]
+
+        let dayNames = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+        let dayName = dayNames[newRn.getDay()]; 
+
+        progressStart();
+
+        fetch(`https://ams01.pronote.plus/hw?token=${token}&from=${from}`)
+        .then((resp) => resp.json())
+        .then(function(data) { 
+            $('#ListeDevoirs').empty();
+
+            if(data.message !== undefined) {
+                tokenRefreshBkg()
+            }
+            progressEnd();
+            
+            let resp = data.data.homeworks;
+
+            for(hw in resp) {
+                let classes = "";
+
+                $('#ListeDevoirs').append(`
+                    <div id="hw_${resp[hw].id}" class="cours ${classes}" style="--off: ${hw * 50}ms", '${from}')">
+                        <div style="--bg:${resp[hw].color}" class="coursleftBar"></div>
+                        <div class="cours_data">
+                            <div class="cours_topData">
+                                <p>${resp[hw].subject}</p>
+                                <div class="content hwContent">
+                                    ${resp[hw].htmlDescription}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+
+            let newHW = JSON.parse(localStorage.getItem("newHW"));
+
+
+            if(newHW !== null) {
+                for (hw in newHW) {
+                    customHW = newHW[hw];
+
+                    // le = est volontaire pour l'afficher tout le temps
+                    if(customHW.date = rn.toISOString()) {
+                        $('#ListeDevoirs').append(`
+                            <div onclick="customHWMenu(${hw})" class="cours" style="--off: ${(resp.length * 50) + (hw * 50)}ms">
+                                <div class="coursleftBar"></div>
+                                <div class="cours_data">
+                                    <div class="cours_topData">
+                                        <p>Devoir personnalisé</p>
+                                        <div class="content hwContent">
+                                            ${customHW.content}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                }
+            }
+
+            /* $('#ListeDevoirs').append(`
+                    <div class="cours" style="--off: ${(resp.length * 50) + 50}ms">
+                        <div class="coursleftBar"></div>
+                        <div class="cours_data">
+                            <div class="cours_topData">
+                                <div class="content hwContent">
+                                    <input id="newHW" placeholder="Ajouter un devoir personnalisé"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            `); */
+
+            document.getElementById("newHW").addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    let newHW = localStorage.getItem("newHW");
+
+                    if(newHW == null) {
+                        newHW = [];
+                    }
+                    else {
+                        newHW = JSON.parse(newHW);
+                    }
+
+                    newHW.push({
+                        "date": rn.toISOString(),
+                        "content": document.getElementById("newHW").value
+                    });
+                    localStorage.setItem("newHW", JSON.stringify(newHW));
+
+                    allRefresh();
+                }
+            });
+
+            if(resp.length === 0) {
+                $('#ListeDevoirs').append(`
+                    <div class="cours" style="--off: 0ms">
+                        <div class="coursleftBar"></div>
+                        <div class="cours_data">
+                            <div class="cours_topData">
+                                <h3>🥳 Pas de travail à faire</h3>
+                                <p>C'est l'ocassion de profiter de ta journée !</p>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+        });
+    }
+
+    mainView_Hw();
+</script>

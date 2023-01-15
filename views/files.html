@@ -1,0 +1,89 @@
+<div id="ListeFichiers" class="liste">
+    <div class="cours loadingCours" style="--off: 0ms">
+        <div class="coursleftBar"></div>
+        <div class="cours_data">
+            <div class="cours_topData">
+                <h3>Chargement en cours...</h3>
+                <p>Récupération des fichiers...</p>
+                <div class="loadingCoursBar">
+                    <div class="loadingCoursBarFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    if(localStorage.getItem("cache_files") !== null){
+        // parse_files(JSON.parse(localStorage.getItem("cache_files")));
+        mainView_files();
+    }
+    else {
+        mainView_files();
+    }
+
+    function mainView_files() {
+        let half = new Date(rn);
+        half.setDate(half.getDate() + 1);
+        let from = half.toISOString().split("T")[0]
+        progressStart(4);
+        $.get(`https://ams01.pronote.plus/files?token=${token}&rand=${uuidv4()}`, function( data ) {
+            if(JSON.parse(data).message !== undefined) {
+                window.location.href = 'login/';
+            }
+            progressEnd();
+            
+            localStorage.setItem('cache_files', JSON.stringify(data));
+            parse_files(data);
+        });
+    }
+
+    function parse_files(data) {
+        let resp = JSON.parse(data).data.files;
+
+        if (resp.length !== 0) {
+
+            $('#ListeFichiers').html('');
+            
+            // sort by time
+            resp.sort(function(a, b) {
+                return new Date(a.time) - new Date(b.time);
+            });
+
+            for(file_id in resp) {
+                let file = resp[file_id];
+
+                let date = new Date(parseInt(file.time));
+                let added = date.toLocaleDateString();
+
+                $('#ListeFichiers').append(`
+                    <a href="${file.url}"><div class="cours file" style="--off: ${file_id * 20}ms">
+                        <div style="" class="coursleftBar"></div>
+                        <span class="material-symbols-outlined">
+                            description
+                        </span>
+                        <div>
+                            <h3>${file.subject}</h3>
+                            <p>${file.url}</p>
+                            <small>ajouté le ${added}</small>
+                        </div>
+                    </div></a>
+                `);
+            }
+        }
+        else {
+            $('#ListeFichiers').append(`
+                <div class="cours file" style="--off: 0ms">
+                    <div style="" class="coursleftBar"></div>
+                    <span class="material-symbols-outlined">
+                        description
+                    </span>
+                    <div>
+                        <h3>Aucun fichier</h3>
+                        <p>Vous n'avez aucun fichier à afficher.</p>
+                    </div>
+                </div>
+            `);
+        }
+    }
+</script>

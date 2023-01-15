@@ -1,0 +1,56 @@
+<div id="ListMark" class="liste">
+
+</div>
+
+<script>
+    markID = q;
+    mark = allMarks[q];
+
+    markname = "";
+    if(mark.title !== "") {
+        markname = mark.title;
+    } else {
+        markname = "Aucun nom";
+    }
+
+    value = 0;
+    if(mark.value !== null) {
+        value = ((mark.value/mark.scale)*20).toFixed(2);
+    } else {
+        value = "N. noté";
+    }
+
+    markOriginValue = 0;
+    if(mark.value !== null) {
+        markOriginValue = mark.value.toFixed(2);
+    } else {
+        markOriginValue = "N. noté";
+    }
+
+    date = new Date(mark.date);
+    dateString = date.toLocaleDateString();
+
+    $(`#ListMark`).append(`
+        <div class="cours colored" style="--off: 0ms; --bg: ${mark.color}">
+            <div class="coursleftBar"></div>
+            <div class="cours_data">
+                <div class="cours_topData">
+                    <h3>${value}<small>/20</small></h3>
+                    <p>${markname}</p>
+                </div>
+                <div class="cours_btmData">
+                    <div>
+                        <p>👀 Moyenne : ${mark.average}/<small>${mark.scale}</small></p>
+                        <p>👹 Note originale : ${markOriginValue}/<small>${mark.scale}</small></p>
+                        <p>👭 Coeff : x${mark.coefficient}</p>
+                        <p>👍 Meilleure note : ${mark.max}/<small>${mark.scale}</small></p>
+                        <p>🤯 Moins bonne note : ${mark.min}/<small>${mark.scale}</small></p>
+                    </div>
+                    <p class="when">${dateString}</p>
+                </div>
+            </div>
+        </div>
+    `)
+
+    setMenuTabContent("Détail de la note • " + mark.subject);
+</script>
